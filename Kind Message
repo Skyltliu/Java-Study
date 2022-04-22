@@ -1,0 +1,23 @@
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.io.IOException;
+import java.io.FileNotFoundException;
+public class Kind {
+    public static void main(String[] args) throws IOException, FileNotFoundException{
+        Scanner in = new Scanner(System.in);
+        System.out.println("Choose a file name: ");
+        String theFileName = in.nextLine();
+        File theFile = new File(theFileName);
+        FileWriter fileWriter = new FileWriter(theFile,true);
+        PrintWriter theWriter = new PrintWriter(fileWriter);
+        System.out.println("Kind message: ");
+        String theKindMessage = in.nextLine();
+        theKindMessage = theKindMessage + "\n";
+        theWriter.write(theKindMessage);
+        System.out.println();
+        in.close();
+        fileWriter.close();
+    }
+}
