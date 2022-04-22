@@ -1,0 +1,40 @@
+import java.util.ArrayList;
+public class Bag {
+    private int counter = 0;
+    ArrayList<String> arraylist = new ArrayList<String>();
+    public void add(String itemName){
+        arraylist.add(itemName);
+    }
+    public int count(int itemQuantity){
+        counter = counter + itemQuantity;
+        return counter;
+    }
+    public String toString(){
+        return "" + arraylist + ": " + counter;
+    }
+}
+public class Item extends Bag{
+    private String itemName;
+    private int quantity;
+    public Item(String itemNameInput, int quantityInput){
+        itemName = itemNameInput;
+        quantity = quantityInput;
+        super.add(itemName);
+        super.count(quantity);
+    }
+}
+import java.util.Scanner;
+public class BagTester {
+    public static void main(String[] args){
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("what item?");
+        String theItem = keyboard.next();
+        System.out.println("what quantity?");
+        int theQuantity = keyboard.nextInt();
+        Item newItem = new Item(theItem, theQuantity);
+        Item newItem2 = new Item("Vegetables", 3);
+        System.out.println(newItem.toString());
+        System.out.println(newItem2.toString());
+        keyboard.close();
+    }
+}
