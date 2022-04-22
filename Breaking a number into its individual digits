@@ -1,0 +1,33 @@
+import java.util.Stack;
+public class NumberBreak {
+    public static Stack<Integer> input(int numberss){
+        Stack<Integer> theStack = new Stack<Integer>();
+        while(numberss > 0){
+            theStack.push(numberss%10);
+            numberss = numberss/10;
+        }
+        return theStack;
+    }
+    public static void output(Stack<Integer>numbers){
+        int substitute2 = 0;
+        System.out.println(numbers.size());
+        while(numbers.size() > 0){
+            substitute2 = numbers.pop();
+            System.out.println("The digits: " + substitute2);       
+        }
+    }
+}
+
+
+import java.util.Scanner;
+import java.util.Stack;
+public class NumberBreakTester {
+    public static void main(String[] args){
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter a number: ");
+        int theNumber = in.nextInt();
+        Stack<Integer> aNotherStack = NumberBreak.input(theNumber);
+        NumberBreak.output(aNotherStack);
+        in.close();
+    }
+}
