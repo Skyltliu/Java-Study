@@ -1,0 +1,36 @@
+public interface Sequence {
+    int next();
+}
+public class FirstDigitDistribution {
+    private int[] counters;
+    public FirstDigitDistribution(){
+        counters = new int[10];
+    }
+    public void process(Sequence seq, int valuesToProcess){
+        for (int i = 1; i <= valuesToProcess; i++){
+            double value = seq.next();
+        while (value >= 10){
+            value = value / 10;
+        }
+        int firstDigit = (int) value;
+        counters[firstDigit]++;
+    }
+}
+    public void display(){
+        for (int i = 0; i < counters.length; i++){
+            System.out.println(i + ": " + counters[i]);
+        }
+    }
+}
+public class RandomSequence implements Sequence{
+    public int next(){
+    return (int) (Integer.MAX_VALUE * Math.random());
+    }
+}
+public class SquareSequence implements Sequence{
+    private int n;
+    public int next(){
+        n++;
+        return n * n;
+    }
+}
