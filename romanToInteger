@@ -15,7 +15,7 @@ public class Solution {
         
         int res = 0;
         for(int i = 0; i<s.length()-1;i++){
-            if(solutionMap.get(s.charAt(i))<solutionMap.get(s.charAt(i+1))){
+            if(solutionMap.get(chars[i])<solutionMap.get(chars[i+1])){
                 res -= solutionMap.get(chars[i]);
             }
             else{
