@@ -1,0 +1,18 @@
+import java.util.*;
+public class Solution {public Solution(){}
+    public int numUniqueEmails(String[] emails) {
+        HashSet<String> hashbrowns = new HashSet<>();
+        for(String hashbrown : emails){
+            String[] parts = hashbrown.split("@");
+            String[] local = parts[0].split("\\+");
+            hashbrowns.add(local[0].replace(".","")+ "@" +parts[1]);
+        }
+        return hashbrowns.size();
+  }
+    public static void main(String[] args){
+        Solution solution = new Solution();
+        String[] string = {"a@leetcode.com","b@leetcode.com","c@leetcode.com"};
+        int integer = solution.numUniqueEmails(string);
+        System.out.print(integer);
+    }
+}
